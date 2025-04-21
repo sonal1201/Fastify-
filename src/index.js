@@ -2,11 +2,10 @@ const fastify = require('fastify')({loggger: true})
 
 const PORT = 3000;
 
-fastify.get('/api',(req,res) =>  {
-    res.send({
-        data: "Hello"
-    })
-})
+const app = require('./app');
+
+fastify.register(app)
+
 
 fastify.listen({port: PORT},(err)=>{
     if(err){
